@@ -26,13 +26,13 @@ class WebGuesserTest < Minitest::Test
   end
 
   def test_it_gives_feedback_on_a_low_guess
-    get '/', :guess => 10
+    get '/', {:guess => 5, :secret => 10}
     assert (last_response.body =~ /Sorry, that's too low./)
     refute (last_response.body =~ /Sorry, that's too high./)
   end
 
   def test_it_gives_feedback_on_a_high_guess
-    get '/', :guess => 10
+    get '/', :guess => 20, :secret => 10
     assert (last_response.body =~ /Sorry, that's too high./)
     refute (last_response.body =~ /Sorry, that's too low./)
   end

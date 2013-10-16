@@ -3,12 +3,13 @@
 <body>
   <h1>Welcome to WebGuesser</h1>
 
-  The secret number is 6.
+  The secret number is <%= secret %>.
   You guessed <%= last_guess %>.
-  <% if last_guess > 6 %>
+  <% if result == :too_high %>
     Sorry, that's too high.
+  <% else %>
+    Sorry, that's too low.
   <% end %>
-  Sorry, that's too low.
   
 </body>
 </html>
